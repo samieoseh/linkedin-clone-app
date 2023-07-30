@@ -66,6 +66,9 @@ const Wrap = styled.div`
   flex-direction: row;
   justify-content: space-between;
 
+  @media (max-width: 768px) {
+    width: 95%;
+  }
 `;
 
 
@@ -76,18 +79,31 @@ const Logo = styled.div`
   img {
     width: 135px;
     height: 34px;
+    fill: #0a66c2;
+    
+    @media (max-width: 768px) {
+      width: 100px;
+      height: 20px;
+    }
+    
   }
 `;
 
 const Menu = styled.div`
   display: flex;
   justify-content: space-between;
+
+  
 `;
 
 const LeftMenu = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 
   div {
     margin: 0 15px;
@@ -132,6 +148,10 @@ const RightMenu = styled.div`
     background-color: transparent;
     font-weight: 600;
     font-size: 13px;
+
+    @media (max-width: 768px) {
+      padding: 15px 25px;
+    }
   }
 
   button:first-child {
@@ -142,6 +162,8 @@ const RightMenu = styled.div`
     border: none;
     border-radius: 32px;
     margin: 0px 10px;
+
+
 
     &:hover {
       background-color: rgb(230, 230, 230);
@@ -155,6 +177,7 @@ const RightMenu = styled.div`
     color: #0a68c6;
     border-radius: 40px;
     cursor: pointer;
+
 
     &:hover {
       background-color: rgba(10,102,194, 0.1);

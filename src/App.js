@@ -1,12 +1,17 @@
 import React from 'react';
-import styled from "styled-components";
-import Login from './components/Login';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from "./components/Home";
+import User from "./components/User";
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      <BrowserRouter>
+        <Routes>
+          <Route exact path='/home' element={<Home />}/>
+          <Route exact path='/user' element={<User />}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
