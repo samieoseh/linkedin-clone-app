@@ -66,7 +66,8 @@ const Container = styled.div`
     justify-content: center;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    position: sticky;
+    position: fixed;
+    z-index: 100;
 `
 
 const Wrap = styled.div`

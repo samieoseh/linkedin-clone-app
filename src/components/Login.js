@@ -1,37 +1,48 @@
-import React, {useState} from 'react'
+// Importing required libraries and modules
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import styled from "styled-components";
 
+// The main Login component
 function Login() {
-  const [showPassword, setShowPassword] = useState(false)
-  
+  // State to control the visibility of the password field
+  const [showPassword, setShowPassword] = useState(false);
+
+  // Function to toggle the visibility of the password
   function togglePasswordVisibility() {
-    setShowPassword(!showPassword)
+    setShowPassword(!showPassword);
   }
 
+  // JSX representing the Login form
   return (
     <Container>
+      {/* LeftWrap contains the login form */}
       <LeftWrap>
         <Title>
           <h1>Welcome to your</h1>
           <h1>professional community</h1>
         </Title>
+        {/* Email field */}
         <EmailField>
           <label>Email or phone</label>
           <input type="text" />
         </EmailField>
+        {/* Password field */}
         <PasswordField>
           <label>Password</label>
           <PasswordWrapper>
-            <input type={showPassword ? "text": "password"}/>
+            <input type={showPassword ? "text" : "password"} />
             <button onClick={() => togglePasswordVisibility()}>
-              {showPassword ? 'Hide': 'Show'}
+              {showPassword ? 'Hide' : 'Show'}
             </button>
           </PasswordWrapper>
         </PasswordField>
+        {/* "Forgot password?" link and "Sign in" button */}
         <SignIn>
           <a href="#">Forgot password?</a>
           <input type="submit" value="Sign in" />
         </SignIn>
+        {/* "Continue with Google" button and "Join now" button */}
         <Join>
           <div>
             <span></span>
@@ -45,14 +56,14 @@ function Login() {
           <button>New to Linkedin? Join now</button>
         </Join>
       </LeftWrap>
+      {/* RightWrap contains an illustration image */}
       <RightWrap>
-        <img data-test-id="hero__illustration" src="../images/home-svg.svg" />
+        <img data-test-id="hero__illustration" src="../images/home-svg.svg" alt="Hero Illustration" />
       </RightWrap>
     </Container>
-  )
+  );
 }
 
-export default Login
 
 const Container = styled.div`
   margin-top: 2.5vh;
@@ -269,3 +280,13 @@ const Join = styled.div`
     }
   }
 `;
+
+// Mapping Redux state and dispatch to props
+const mapStateToProps = (state) => {
+  return {}
+}
+
+const mapDispatchToProps = (dispatch) => ({});
+
+// Exporting the connected Login component using Redux
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
