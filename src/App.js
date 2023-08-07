@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import User from "./components/User";
 
@@ -8,8 +8,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route exact path='/home' element={<Home />}/>
-          <Route exact path='/user' element={<User />}/>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/user" element={<User />} />
         </Routes>
       </BrowserRouter>
     </div>

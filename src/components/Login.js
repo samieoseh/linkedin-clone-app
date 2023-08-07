@@ -1,7 +1,8 @@
 // Importing required libraries and modules
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import React, { useState } from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 // The main Login component
 function Login() {
@@ -33,14 +34,14 @@ function Login() {
           <PasswordWrapper>
             <input type={showPassword ? "text" : "password"} />
             <button onClick={() => togglePasswordVisibility()}>
-              {showPassword ? 'Hide' : 'Show'}
+              {showPassword ? "Hide" : "Show"}
             </button>
           </PasswordWrapper>
         </PasswordField>
         {/* "Forgot password?" link and "Sign in" button */}
         <SignIn>
           <a href="#">Forgot password?</a>
-          <input type="submit" value="Sign in" />
+          <Link to="/user">Submit</Link>
         </SignIn>
         {/* "Continue with Google" button and "Join now" button */}
         <Join>
@@ -50,7 +51,7 @@ function Login() {
             <span></span>
           </div>
           <div>
-            <img src='../images/google.svg' alt="Google logo" />
+            <img src="../images/google.svg" alt="Google logo" />
             <p>Continue with Google</p>
           </div>
           <button>New to Linkedin? Join now</button>
@@ -58,12 +59,15 @@ function Login() {
       </LeftWrap>
       {/* RightWrap contains an illustration image */}
       <RightWrap>
-        <img data-test-id="hero__illustration" src="../images/home-svg.svg" alt="Hero Illustration" />
+        <img
+          data-test-id="hero__illustration"
+          src="../images/home-svg.svg"
+          alt="Hero Illustration"
+        />
       </RightWrap>
     </Container>
   );
 }
-
 
 const Container = styled.div`
   margin-top: 2.5vh;
@@ -74,7 +78,7 @@ const Container = styled.div`
 const LeftWrap = styled.div`
   margin: 6vh 7.5%;
 
-  @media(max-width: 768px) {
+  @media (max-width: 768px) {
     margin: 1vh 2.5%;
     width: 100%;
   }
@@ -85,7 +89,7 @@ const RightWrap = styled.div`
   top: 18vh;
   right: -120px;
 
-  @media(max-width: 768px) {
+  @media (max-width: 768px) {
     display: none;
   }
 
@@ -96,7 +100,6 @@ const RightWrap = styled.div`
 `;
 
 const Title = styled.div`
-  
   h1 {
     font-size: 54px;
     color: #8f5849;
@@ -129,7 +132,7 @@ const EmailField = styled.div`
     border-radius: 5px;
     font-size: 15px;
     outline: none;
-    
+
     @media (max-width: 768px) {
       width: 100%;
     }
@@ -160,8 +163,7 @@ const PasswordWrapper = styled.div`
     width: 85%;
     border: none;
   }
-
-`
+`;
 const PasswordField = styled(EmailField)`
   padding-top: 20px;
 `;
@@ -170,7 +172,7 @@ const SignIn = styled.div`
   width: 70%;
   display: flex;
   flex-direction: column;
-  
+
   @media (max-width: 768px) {
     width: 100%;
   }
@@ -183,7 +185,7 @@ const SignIn = styled.div`
     font-weight: 700;
   }
 
-  input {
+  a:last-child {
     border-radius: 25px;
     padding: 15px 0;
     color: #fff;
@@ -191,6 +193,7 @@ const SignIn = styled.div`
     font-size: 16px;
     cursor: pointer;
     border: none;
+    text-align: center;
 
     &:hover {
       background: #281593;
@@ -256,7 +259,7 @@ const Join = styled.div`
     }
 
     &:hover {
-      background-color: #f7f9ff
+      background-color: #f7f9ff;
     }
   }
 
@@ -269,7 +272,7 @@ const Join = styled.div`
     border: 1px solid #111;
     border-radius: 25px;
     font-weight: 600;
-    font-family: 'Roboto';
+    font-family: "Roboto";
 
     @media (max-width: 768px) {
       width: 100%;
@@ -283,10 +286,10 @@ const Join = styled.div`
 
 // Mapping Redux state and dispatch to props
 const mapStateToProps = (state) => {
-  return {}
-}
+  return {};
+};
 
 const mapDispatchToProps = (dispatch) => ({});
 
 // Exporting the connected Login component using Redux
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -71,6 +71,7 @@ const ProfilePhoto = styled.div`
     position: absolute;
     top: 10%;
     left: calc(50% - 35px);
+    cursor: pointer;
 
     img {
         height: 70px;
